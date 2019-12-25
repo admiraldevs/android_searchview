@@ -22,6 +22,18 @@ class MainActivity : AppCompatActivity() {
 
         addDataList()
         searchAdapter()
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                return false
+            }
+
+        })
     }
 
     private fun searchAdapter(){
@@ -31,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun addDataList(): ArrayList<String>{
         list = ArrayList<String>()
-        
+
         // add data
         list.add("Monday")
         list.add("Tuesday")
