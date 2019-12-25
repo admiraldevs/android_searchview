@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var searchView: SearchView
     lateinit var myList: ListView
     lateinit var list: ArrayList<String>
+    lateinit var adapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         myList.findViewById<ListView>(R.id.myList)
 
         addDataList()
+        searchAdapter()
+    }
+
+    private fun searchAdapter(){
+        adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list)
+        myList.setAdapter(adapter)
     }
 
     private fun addDataList(): ArrayList<String>{
