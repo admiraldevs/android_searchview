@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        searchView.findViewById<SearchView>(R.id.searchView)
-        myList.findViewById<ListView>(R.id.myList)
+        searchView = findViewById<SearchView>(R.id.searchView)
+        myList = findViewById<ListView>(R.id.myList)
 
         addDataList()
         searchAdapter()
@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addDataList(): ArrayList<String>{
+        list = ArrayList<String>()
+        
         // add data
         list.add("Monday")
         list.add("Tuesday")
